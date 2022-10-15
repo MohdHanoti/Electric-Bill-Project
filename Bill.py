@@ -1,4 +1,7 @@
 class Bill:
+    """
+
+    """
     Taxes={
         "Televesion tax":1,
         "Trash tax":0,
@@ -7,9 +10,15 @@ class Bill:
         "other taxes":0
     }
 
-    def __init__(self,name='',KW=0):
+    def __init__(self):
+         self.city = None
+         self.KW = None
+        
+    def set_name(self,name):
         self.name=name
-        self.KW=KW
+
+    def set_KW(self,KW):
+        self.KW=KW        
 
     def update_Taxes(self):
         Bill.Taxes["other taxes"]=self.KW/1000
@@ -20,6 +29,7 @@ class Bill:
 
 
     def get_elictric_price(self):
+        
         value=0
         price=0
         if self.KW <0:
@@ -61,8 +71,8 @@ class Bill:
         total_price=self.get_elictric_price()+additional_taxes
         return total_price
    
-
-    def __str__(self):
+    def get_data(self):
+        self.get_final_price()
         return f"""
         welcome {self.name} to the elictrical bill program
         Your elictrical consumbtion is {self.KW} KW
@@ -73,5 +83,9 @@ class Bill:
 
         """
 
-EX=Bill("mohammad",300)
-print (EX)            
+    def __str__(self):
+        return f"welcome {self.name} to the elictrical bill program"
+  
+
+bill=Bill() # general call
+            
