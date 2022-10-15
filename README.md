@@ -14,3 +14,5 @@ How to initialize/run your application ?
 * python main.py-- To run the functions
 How to test the application
 * pytest
+
+[PR](https://github.com/MohdHanoti/Electric-Bill-Project/pull/2)
