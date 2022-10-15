@@ -18,9 +18,13 @@ How to test the application
 Challenges:
 
 1. selecting the project concept and planning the project logic.
+
 2. Time management.
+
 3. deal with pytest Testing error.
+
 4. Every feature should be tested.
+
 5. pushing and conflict.
 
 [PR](https://github.com/MohdHanoti/Electric-Bill-Project/pull/2)
