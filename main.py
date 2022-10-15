@@ -3,18 +3,23 @@ from Bill import bill
 def bill_data():
     print('''
     *****************************************************
-    ** welcome to elictrical bill program ***************
-    ** this program will calculate your bill ************
+    ******** welcome to elictrical bill program *********
+    ******* this program will calculate your bill *******
     ** all you need to do is providing us with your KW **
+    *****************************************************
     ''')
     while True:
-        name=input(" >> enter your name please: ")
-        KW=float(input (" >> enter your power consumbtion in KW : "))
-        if type(name) != str or type(KW) != float:
-            print (type(name),type(KW))
-            print(" $$ name must be of only charectors and KW must be a number $$")
-        else :
-            break    
+        """this to force the user to input a number in kw"""
+        try:
+            name=input(" >> enter your name please: ")
+            KW= float(input (" >> enter your power consumbtion in KW : "))
+            break
+        
+        except ValueError:
+            print(" Err: Power consumbtion must be a number!")
+       
+    
+       
 
     bill.set_name(name)
     bill.set_KW(KW)
@@ -40,6 +45,9 @@ def bill_data():
         |                                                                         |
         | Total price            |   {bill.get_final_price()} JD                   
         |_________________________________________________________________________|
+
+        ** Thanks for using our applecation!
+        > Bye 
         """)                                                                    
 
 bill_data()
