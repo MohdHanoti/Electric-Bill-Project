@@ -1,6 +1,6 @@
 class Bill:
     """
-
+    App helps you to know the total financial value with taxes for the electricity bill
     """
     Taxes={
         "Televesion tax":1,
@@ -21,6 +21,9 @@ class Bill:
         self.KW=KW        
 
     def update_Taxes(self):
+        """
+        Here, the value of the tax imposed will change according to the value of amount of KW consumption
+        """
         Bill.Taxes["other taxes"]=self.KW/1000
         if self.KW>200:
             Bill.Taxes["Trash tax"]=1.66+0.005*(self.KW-200)
@@ -29,11 +32,13 @@ class Bill:
 
 
     def get_elictric_price(self):
-        
+        """
+        Here, the value of the bill will be calculated according to the amount of KW are used
+        """
         value=0
         price=0
         if self.KW <0:
-            return "Please enter a positive power consumbtion in K"
+            return "Please enter a positive power consumbtion in KW"
         if self.KW >=0 and self.KW<=160:
             value=0.033
             price=value*self.KW
@@ -64,6 +69,9 @@ class Bill:
             return price
 
     def get_final_price(self):
+        """
+        Here, will get the final price of the electricity bill with taxes
+        """
         self.update_Taxes()
         additional_taxes=0
         for i in Bill.Taxes:
@@ -72,7 +80,8 @@ class Bill:
         return total_price
    
     def get_data(self):
-        self.get_final_price()
+        """This function is bult for the test porpose and if the programer wanted to use the progrem from this module"""
+        self.update_Taxes()
         return f"""
         welcome {self.name} to the elictrical bill program
         Your elictrical consumbtion is {self.KW} KW
